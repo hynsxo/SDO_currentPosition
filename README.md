@@ -39,3 +39,4 @@ fun.appendToCSV_DATA("q8손목", (float)maxonMotor->nodeId, maxonMotor->motorPos
 <img src="./images/타격감지시_현재위치.png" alt="타격감지시_현재위치">
 
 **ㄴ CSP모드에서 CST모드로 전환되는 시점에 받아오는 현재 모터 위치 값 받아옴**
+**ㄴ 타격감지 시 현재위치 값이, 그래프 상에서 정확하게 일치함 (=23.1601초)**
