@@ -4,21 +4,27 @@
 
 ---
 
-<img src="./senddata.png" alt="send images">
+<img src="./images/maxon_epos4_application.png" alt="send images">
+
+**ㄴ Maxon모터 EPOS4 Application Notes SDO communication**
+
+---
+
+<img src="./images/senddata.png" alt="send images">
 <pre>
 fun.appendToCSV_DATA("손목데이터", (float)maxonMotor->nodeId, maxonMotor->motorPosition, maxonMotor->motorTorque);
 </pre>
 
-**5ms (0.005) 단위로 데이터가 모터로 보내짐. (궤적 포지션 제어 명령)**
+**ㄴ 5ms (0.005) 단위로 데이터가 모터로 보내짐. (궤적 포지션 제어 명령)**
 
 ---
 
-<img src="./recvdata.png" alt="recv images">
+<img src="./images/recvdata.png" alt="recv images">
 <pre>
 fun.appendToCSV_DATA("q8손목", (float)maxonMotor->nodeId, maxonMotor->motorPosition, 0);
 </pre>
 
-**SDO를 사용하여 받아오는 모터 현재 위치 값을 주기적으로 바로 받아 옴.**
+**ㄴ SDO를 사용하여 받아오는 모터 현재 위치 값을 주기적으로 바로 받아 옴.**
 
 
 ---
