@@ -4,7 +4,7 @@
 
 ---
 
-<img src="./images/maxon_epos4_application.png" alt="send images">
+<img src="./images/maxon_epos4_application.png" alt="SDO communication">
 
 **ㄴ Maxon모터 EPOS4 Application Notes SDO communication**
 
@@ -28,3 +28,8 @@ fun.appendToCSV_DATA("q8손목", (float)maxonMotor->nodeId, maxonMotor->motorPos
 
 
 ---
+
+
+<img src="./images/currentValue.png" alt="currentValue images">
+
+**ㄴ CSP모드에서 CST모드로 전환되는 시점에 받아오는 현재 모터 위치 값 받아옴**
