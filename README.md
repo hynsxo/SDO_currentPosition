@@ -2,6 +2,8 @@
 
 **포지션 제어로 5ms마다 모든 모터에게 명령을 보내는 상황 속에서, SDO communication으로 모터에게 신호를 보내고 손목 모터(Maxon)의 현재 위치 제일 최신 값 받아오기**
 
+**- 기대점: 모터의 CST모드에서 CSP모드로 변환할 때, 보다 정확한 모터 위치 값을 받아올 수 있음**
+
 ---
 
 <img src="./images/maxon_epos4_application.png" alt="SDO communication">
@@ -39,4 +41,5 @@ fun.appendToCSV_DATA("q8손목", (float)maxonMotor->nodeId, maxonMotor->motorPos
 <img src="./images/타격감지시_현재위치.png" alt="타격감지시_현재위치">
 
 **ㄴ CSP모드에서 CST모드로 전환되는 시점에 받아오는 현재 모터 위치 값 받아옴**
-**ㄴ 타격감지 시 현재위치 값이, 그래프 상에서 정확하게 일치함 (=23.1601초)**
+
+**ㄴ 타격감지 시 받아오는 현재위치 값이 그래프 상과 일치함**
