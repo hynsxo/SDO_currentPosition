@@ -11,6 +11,12 @@
 **ㄴ Maxon모터 EPOS4 Application Notes SDO communication**
 
 ---
+# send
+
+<pre>
+maxoncmd.getActualPos(*maxonMotor, &frame); //Maxon모터에게 1ms마다 신호
+canManager.txFrame(motor, frame); // CAN을 통해 보내줌
+</pre>
 
 <img src="./images/senddata.png" alt="send images">
 <img src="./images/sendSignal.png" alt="sendSignal">
@@ -23,6 +29,23 @@ fun.appendToCSV_DATA("손목데이터", (float)maxonMotor->nodeId, maxonMotor->m
 **ㄴ 아래 그래프에서, 빨강 그래프가 포지션 제어로 보내는 제어 명령**
 
 ---
+# receive
+
+<pre>
+// Maxon모터에서 1ms마다 SDO 응답 확인
+if (frame.can_id == (0x580 + maxonMotor->nodeId)) {
+    if (frame.data[1] == 0x64 && frame.data[2] == 0x60 && frame.data[3] == 0x00) { 
+        int32_t pos_enc = frame.data[4] | (frame.data[5] << 8) | (frame.data[6] << 16) | (frame.data[7] << 24);
+
+        float pos_degrees = (static_cast<float>(pos_enc) * 360.0f) / (35.0f * 4096.0f);
+        float pos_radians = pos_degrees * (M_PI / 180.0f);  
+        maxonMotor->motorPosition = pos_radians;
+
+        fun.appendToCSV_DATA("q8손목", (float)maxonMotor->nodeId, maxonMotor->motorPosition, 0);
+        current_Position = maxonMotor->motorPosition; // 현재 위치 값 해당 변수에 덮어쓰기
+    }
+}
+</pre>
 
 <img src="./images/recvdata.png" alt="recv images">
 <img src="./images/recvSignal.png" alt="recvSignal">
